@@ -1,0 +1,33 @@
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Encabezado */
+.header {
+    background: #1a4b8c; /* Azul metalúrgico */
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+/* Barra de navegación */
+.navbar {
+    background: #2c3e50; /* Gris oscuro */
+    padding: 1rem;
+    text-align: center;
+}
+
+.navbar a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+}
+
+/* Contenedor principal */
+.container {
+    width: 80%;
+    margin: 2rem auto;
+}
