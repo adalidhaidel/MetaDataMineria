@@ -1,33 +1,28 @@
-/* Estilos generales */
+/* styles.css (archivo separado) */
+:root {
+  --azul-minero: #1a4b8c;
+  --naranja-reactivo: #e67e22;
+  --gris-escoria: #2c3e50;
+}
+
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    line-height: 1.6;
+  font-family: 'Roboto', sans-serif; /* Fuente moderna */
 }
 
-/* Encabezado */
-.header {
-    background: #1a4b8c; /* Azul metalúrgico */
-    color: white;
-    padding: 2rem 0;
-    text-align: center;
-}
-
-/* Barra de navegación */
+/* Navbar sticky */
 .navbar {
-    background: #2c3e50; /* Gris oscuro */
-    padding: 1rem;
-    text-align: center;
+  background: var(--azul-minero);
+  position: sticky;
+  top: 0;
 }
 
-.navbar a {
-    color: white;
-    margin: 0 15px;
-    text-decoration: none;
+/* Cards con sombras y transiciones */
+.card {
+  transition: all 0.3s ease;
+  border-left: 4px solid var(--naranja-reactivo);
 }
 
-/* Contenedor principal */
-.container {
-    width: 80%;
-    margin: 2rem auto;
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
