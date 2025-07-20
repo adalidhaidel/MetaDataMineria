@@ -3,185 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MetaDataMineria | Consultoría Metalúrgica</title>
+    <title>Calculadora Metalúrgica</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="img/favicon.ico">
 </head>
 <body>
-    <!-- Navbar Profesional -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="img/logo.png" alt="Logo" width="30" class="d-inline-block align-top">
-                MetaDataMineria
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#nosotros">Nosotros</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#herramientas">Herramientas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Sección Inicio con Carrusel -->
-    <header id="inicio" class="hero-section">
-        <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="img/planta1.jpg" class="d-block w-100" alt="Planta Concentradora">
-                    <div class="carousel-caption">
-                        <h1>Optimización de Procesos Metalúrgicos</h1>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="img/horno.jpg" class="d-block w-100" alt="Horno de Fundición">
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Sección Nosotros (Misión/Visión) -->
-    <section id="nosotros" class="py-5 bg-light">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h2 class="text-primary">Misión</h2>
-                    <p>Brindar soluciones técnicas basadas en análisis de datos para maximizar la recuperación de minerales (Au, Cu, Sn) en procesos hidrometalúrgicos y de concentración.</p>
-                </div>
-                <div class="col-md-6">
-                    <h2 class="text-primary">Visión</h2>
-                    <p>Ser líderes en innovación tecnológica para la industria minera al 2030.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección Herramientas -->
+    <!-- Sección de la calculadora -->
     <section id="herramientas" class="py-5">
         <div class="container">
-            <h2 class="text-center mb-4">Herramientas Técnicas</h2>
+            <h2 class="text-center mb-4">Calculadora Metalúrgica</h2>
             
-            <!-- Calculadora de Concentrados -->
-            <div class="card mb-4">
-                <div class="card-header bg-primary text-white">
-                    Calculadora de Ley de Concentrados
+            <div class="calculadora-container">
+                <div class="form-group">
+                    <label for="ley-cabeza">Ley de Cabeza (%):</label>
+                    <input type="number" class="form-control" id="ley-cabeza" step="0.01" placeholder="Ej: 1.5">
                 </div>
-                <div class="card-body">
-                    <div class="mb-3">
-                        <label for="ley-cabeza" class="form-label">Ley de Cabeza (%):</label>
-                        <input type="number" class="form-control" id="ley-cabeza" step="0.01">
-                    </div>
-                    <div class="mb-3">
-                        <label for="ley-concentrado" class="form-label">Ley de Concentrado (%):</label>
-                        <input type="number" class="form-control" id="ley-concentrado" step="0.01">
-                    </div>
-                    <button onclick="calcularRatio()" class="btn btn-primary">Calcular Ratio</button>
-                    <div id="resultado-ratio" class="mt-3 p-2 bg-light rounded"></div>
+                
+                <div class="form-group">
+                    <label for="ley-concentrado">Ley de Concentrado (%):</label>
+                    <input type="number" class="form-control" id="ley-concentrado" step="0.01" placeholder="Ej: 25.0">
                 </div>
+                
+                <div class="form-group">
+                    <label for="recuperacion">Recuperación (%):</label>
+                    <input type="number" class="form-control" id="recuperacion" step="0.01" placeholder="Ej: 90 (opcional)">
+                </div>
+                
+                <button onclick="calcularRatio()" class="btn-calcular">Calcular</button>
+                <button onclick="limpiarCampos()" class="btn-calcular btn-secondary">Limpiar</button>
+                
+                <div id="resultado-ratio"></div>
             </div>
 
-            <!-- Tablas de Datos Técnicos -->
-            <div class="card">
-                <div class="card-header bg-primary text-white">
-                    Parámetros de Procesos
-                </div>
-                <div class="card-body">
-                    <ul class="nav nav-tabs" id="myTab" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="oro-tab" data-bs-toggle="tab" data-bs-target="#oro" type="button">Oro</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="cobre-tab" data-bs-toggle="tab" data-bs-target="#cobre" type="button">Cobre</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="estano-tab" data-bs-toggle="tab" data-bs-target="#estano" type="button">Estaño</button>
-                        </li>
-                    </ul>
-                    <div class="tab-content p-3 border border-top-0 rounded-bottom">
-                        <div class="tab-pane fade show active" id="oro" role="tabpanel">
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Proceso</th>
-                                        <th>Recuperación (%)</th>
-                                        <th>Consumo Reactivos</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Cianuración</td>
-                                        <td>85-95</td>
-                                        <td>NaCN: 0.5-1.5 kg/ton</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="tab-pane fade" id="cobre" role="tabpanel">
-                            <!-- Contenido similar para cobre -->
-                        </div>
-                        <div class="tab-pane fade" id="estano" role="tabpanel">
-                            <!-- Contenido similar para estaño -->
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!-- Tabla de historial -->
+            <h3 class="mt-5">Historial de Cálculos</h3>
+            <table id="tabla-historial" class="table-striped">
+                <thead>
+                    <tr>
+                        <th>Ley Cabeza</th>
+                        <th>Ley Conc.</th>
+                        <th>Ratio</th>
+                        <th>Masa Conc.</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+                <tbody id="historial-body"></tbody>
+            </table>
         </div>
     </section>
-
-    <!-- Sección Contacto -->
-    <section id="contacto" class="py-5 bg-light">
-        <div class="container">
-            <h2 class="text-center mb-4">Contacto Rápido</h2>
-            <div class="row">
-                <div class="col-md-6">
-                    <form id="form-contacto">
-                        <div class="mb-3">
-                            <label for="nombre" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" id="nombre" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="consulta" class="form-label">Consulta Técnica</label>
-                            <textarea class="form-control" id="consulta" rows="3" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Enviar</button>
-                    </form>
-                </div>
-                <div class="col-md-6">
-                    <div class="p-4 bg-white rounded">
-                        <h4><i class="fas fa-phone-alt me-2"></i> Teléfono</h4>
-                        <p>+591 70184470</p>
-                        <h4><i class="fas fa-envelope me-2"></i> Email</h4>
-                        <p>ada_kito@hotmail.es</p>
-                        <h4><i class="fas fa-map-marker-alt me-2"></i> Ubicación</h4>
-                        <p>Oruro, Bolívia</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-dark text-white py-4">
-        <div class="container text-center">
-            <p>&copy; 2024 MetaDataMineria. Todos los derechos reservados.</p>
-        </div>
-    </footer>
 
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="js/calculadora.js"></script>
-    <script src="js/contacto.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
