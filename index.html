@@ -1,3 +1,48 @@
+<!-- Sección de la calculadora -->
+<section id="herramientas" class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Calculadora Metalúrgica</h2>
+        
+        <div class="calculadora-container">
+            <div class="form-group">
+                <label for="ley-cabeza">Ley de Cabeza (%):</label>
+                <input type="number" class="form-control" id="ley-cabeza" step="0.01" placeholder="Ej: 1.5">
+            </div>
+            
+            <div class="form-group">
+                <label for="ley-concentrado">Ley de Concentrado (%):</label>
+                <input type="number" class="form-control" id="ley-concentrado" step="0.01" placeholder="Ej: 25.0">
+            </div>
+            
+            <div class="form-group">
+                <label for="recuperacion">Recuperación (%):</label>
+                <input type="number" class="form-control" id="recuperacion" step="0.01" placeholder="Ej: 90 (opcional)">
+            </div>
+            
+            <button onclick="calcularRatio()" class="btn-calcular">Calcular</button>
+            <button onclick="limpiarCampos()" class="btn-calcular btn-secondary">Limpiar</button>
+            
+            <div id="resultado-ratio"></div>
+        </div>
+
+        <!-- Tabla de historial -->
+        <h3 class="mt-5">Historial de Cálculos</h3>
+        <table id="tabla-historial" class="table-striped">
+            <thead>
+                <tr>
+                    <th>Ley Cabeza</th>
+                    <th>Ley Conc.</th>
+                    <th>Ratio</th>
+                    <th>Masa Conc.</th>
+                    <th>Fecha</th>
+                </tr>
+            </thead>
+            <tbody id="historial-body">
+                <!-- Los resultados se insertarán aquí -->
+            </tbody>
+        </table>
+    </div>
+</section>
 <!DOCTYPE html>
 <html lang="es">
 <head>
