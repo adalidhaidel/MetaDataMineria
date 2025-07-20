@@ -1,0 +1,8 @@
+// Al inicio de calculadora.js
+if (localStorage.getItem('historial')) {
+    resultadosHistoricos = JSON.parse(localStorage.getItem('historial'));
+    actualizarHistorial();
+}
+
+// Después de resultadosHistoricos.push()
+localStorage.setItem('historial', JSON.stringify(resultadosHistoricos));
